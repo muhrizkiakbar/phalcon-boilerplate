@@ -1,6 +1,10 @@
 <?php
 
-defined( 'APP_PATH' ) || define( 'APP_PATH', realpath( '.' ) );
+defined('BASE_PATH') || define('BASE_PATH', getenv('BASE_PATH') ?: realpath(dirname(__FILE__) . '/../..'));
+
+// defined( 'APP_PATH' ) || define( 'APP_PATH', realpath( '.' ) );
+
+defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/phalcon-boilerplate');
 
 use  Phalcon\Logger;
 
@@ -14,13 +18,22 @@ return new \Phalcon\Config( [
 		'software'    => 'application',
 		'support'     => 'gamalanpro@gmail.com'
 	],
+	'database' => [
+        'adapter'     => 'mysql',
+        'host'        => env( 'DATABASE_HOST' ),
+        'username'    => env( 'DATABASE_USER' ),
+        'password'    => env( 'DATABASE_PASS' ),
+        'dbname'      => env( 'DATABASE_NAME' ),
+        'charset'     => 'utf8',
+    ],
 	'application'   => [
-		'controllersDir'     => BASE_DIR . 'app/controllers/',
-		'modelsDir'          => BASE_DIR . 'app/models/',
-		'migrationsDir'      => BASE_DIR . 'app/migrations/',
-		'viewsDir'           => BASE_DIR . 'app/views/',
-		'libraryDir'         => BASE_DIR . 'app/library/',
-		'cacheDir'           => cache_path(),
+		'appDir'         	 => APP_PATH . '/app',
+		'controllersDir'     => APP_PATH . '/app/controllers/',
+		'modelsDir'          => APP_PATH . '/app/models/',
+		'migrationsDir'      => APP_PATH . '/app/migrations/',
+		'viewsDir'           => APP_PATH . '/app/views/',
+		'libraryDir'         => APP_PATH . '/app/library/',
+		'cacheDir'           => BASE_PATH . '/cache/',
 		'baseUri'            => env( 'BASE_URI' ),
 		'staticBaseUri'      => env( 'STATIC_BASE_URI' ),
 		'ketenBaseUri'       => '/',
@@ -72,7 +85,7 @@ return new \Phalcon\Config( [
 		'options'      => [
 			'curl_method' => 'sync',
 			'prefixes'    => [],
-			'app_path'    => BASE_DIR,
+			'app_path'    => APP_PATH,
 			'timeout'     => 2,
 		],
 		// Sentry will log errors/exceptions when the application environment set above is one of these.

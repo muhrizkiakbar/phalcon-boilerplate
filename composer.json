@@ -34,7 +34,7 @@
     "ramsey/uuid": "3.*",
     "alphayax/get_opt": "3.0.0",
     "verdant/xml2array": "dev-master",
-    "sentry/sentry": "dev-master",
+    "sentry/sentry": "*",
     "voku/anti-xss": "dev-master",
     "ezyang/htmlpurifier": "dev-master",
     "peppeocchi/php-cron-scheduler": "^2.3",

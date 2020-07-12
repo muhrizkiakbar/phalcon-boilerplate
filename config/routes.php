@@ -12,5 +12,6 @@ use Phalcon\Mvc\Router;
 $router = new Router( false );
 
 $router->mount( new \Application\Router\MainRouter() );
+$router->mount( new \Application\Router\CarsRouter() );
 
 return $router;

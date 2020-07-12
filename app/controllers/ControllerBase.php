@@ -32,7 +32,8 @@ class ControllerBase extends Controller {
 		} catch ( \Throwable $exc ) {
 			$this->di->getShared( 'sentry' )->logException( $exc, [], 3 );
 		}
-		$this->view->setLayout( 'base' );
+		// $this->view->setLayout( 'base' );
+		$this->view->setLayout( '../index' );
 		$this->basic_server = new BasicServer( $config->get( 'beanstalk' )->basic_worker_name );
 	}
 

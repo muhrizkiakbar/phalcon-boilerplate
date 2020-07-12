@@ -1,6 +1,12 @@
-{% include "shared/modal.volt" %}
+{% extends 'layouts/base.volt' %}
+
+{% block header %}
+    {% include "shared/header.volt" %}
+{% endblock %}
 {% include "shared/nav.volt" %}
-{% include "shared/sidebar.volt" %}
-{% block contents_page %}
+{% block sidebar %}
+    {% include "shared/sidebar.volt" %}
+{% endblock %}
+{% block content %}
 {% endblock %}
 {% include "shared/footer.volt" %}

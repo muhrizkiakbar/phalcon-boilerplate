@@ -47,3 +47,10 @@ supervisor_log/*
 
 ## seed
 #db/seeds/
+#
+docker-compose.yml
+README.yml
+phpconfig/
+docker/
+phpdocker/
+Dockerfile
